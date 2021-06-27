@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gerencia_de_estado_mobx/count_controller.dart';
 
 void main() {
@@ -44,10 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '${controller.count}',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Observer(
+              builder: (context) => Text(
+                '${controller.count}',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+            )
           ],
         ),
       ),
